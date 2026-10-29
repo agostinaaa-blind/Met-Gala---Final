@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conocé The Met Archives y descubrí las respuestas a las preguntas frecuentes sobre la Met Gala y el Costume Institute.">
+  <title>Acerca de — The Met Archives</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="acerca-de.css">
+  <script src="navigation.js" defer></script>
+  <script src="acerca-de.js" defer></script>
+</head>
+<body class="about-page">
+  <header class="site-header">
+    <a class="wordmark" href="index.html#inicio" aria-label="The Met Archives, inicio"><span>THE MET</span><span>/ARCHIVES</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+      <a href="index.html#inicio">Inicio</a>
+      <a href="index.html#anios">Galas por año</a>
+      <a href="index.html#looks">Looks</a>
+      <a href="articulos.html">Artículos</a>
+      <a href="#">Ver revista interactiva</a>
+      <details class="nav-dropdown">
+        <summary>Acerca de <i class="ri-arrow-down-s-line" aria-hidden="true"></i></summary>
+        <div class="nav-submenu">
+          <a href="acerca-de.html" aria-current="page">Nosotros<span>Preguntas frecuentes</span></a>
+          <a href="contacto.html">Contacto<span>El museo y sus sedes</span></a>
+        </div>
+      </details>
+    </nav>
+    <a class="about-header-link" href="index.html#looks">Explorar archivo <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+    <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><i class="ri-menu-line" aria-hidden="true"></i></button>
+  </header>
+
+  <main>
+    <section class="about-faq" id="preguntas" aria-labelledby="faqTitle">
+      <aside class="about-faq-intro">
+        <p class="about-eyebrow">Lo que hay detrás</p>
+        <h1 id="faqTitle">Preguntas <br>frecuentes.</h1>
+        <p>Diez preguntas para conocer el evento, el museo y todo lo que conecta a la moda con el arte.</p>
+        <a class="about-small-link" href="index.html#anios">Recorré las galas por año <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+      </aside>
+
+      <div class="about-faq-list">
+        <div class="about-faq-toolbar"><span>Preguntas frecuentes <span class="about-faq-count">10</span></span><button id="expandQuestions" type="button" hidden aria-controls="faqItems">Expandir todas <i class="ri-add-line" aria-hidden="true"></i></button></div>
+        <div id="faqItems">
+          <details class="about-question" open>
+            <summary><span class="about-question-number">01</span><h3>¿Qué es la Met Gala?</h3><i class="ri-add-line" aria-hidden="true"></i></summary>
+            <div class="about-answer"><p>La Met Gala, oficialmente llamada Costume Institute Benefit, es un evento anual del Metropolitan Museum of Art que recauda fondos para el Costume Institute.</p></div>
+          </details>
+          <details class="about-question">
+            <summary><span class="about-question-number">02</span><h3>¿Cuándo comenzó la Met Gala?</h3><i class="ri-add-line" aria-hidden="true"></i></summary>
+            <div class="about-answer"><p>La primera gala se realizó en 1948, organizada por Eleanor Lambert como una cena destinada a recaudar fondos para el Costume Institute.</p></div>
+          </details>
+          <details class="about-question">
+            <summary><span class="about-question-number">03</span><h3>¿Qué es el Costume Institute?</h3><i class="ri-add-line" aria-hidden="true"></i></summary>
+            <div class="about-answer"><p>Es el departamento del Metropolitan Museum of Art dedicado a la historia de la indumentaria y encargado de conservar, estudiar y exhibir su colección de moda.</p></div>
+          </details>
+          <details class="about-question">
+            <summary><span class="about-question-number">04</span><h3>¿Por qué la Met Gala tiene un tema diferente cada año?</h3><i class="ri-add-line" aria-hidden="true"></i></summary>
+            <div class="about-answer"><p>Porque cada gala acompaña la inauguración de una nueva exposición del Costume Institute. El tema de la exposición establece el concepto de la noche.</p></div>
+          </details>
+          <details class="about-question">
+            <summary><span class="about-question-number">05</span><h3>¿Qué es el dress code de la Met Gala?</h3><i class="ri-add-line" aria-hidden="true"></i></summary>
+            <div class="about-answer"><p>Es la consigna que invita a los asistentes a interpretar el tema de la exposición a través de su vestuario.</p></div>
+          </details>
+          <details class="about-question">
+            <summary><span class="about-question-number">06</span><h3>¿Para qué se utiliza el dinero recaudado por la Met Gala?</h3><i class="ri-add-line" aria-hidden="true"></i></summary>
+            <div class="about-answer"><p>Los fondos contribuyen al trabajo del Costume Institute, incluyendo sus exposiciones, adquisiciones y actividades.</p></div>
+          </details>
+          <details class="about-question">
+            <summary><span class="about-question-number">07</span><h3>¿Cómo puedo contactar al Costume Institute?</h3><i class="ri-add-line" aria-hidden="true"></i></summary>
+            <div class="about-answer"><dl class="about-contacts">
+              <dt>Consultas sobre la colección</dt><dd><a href="mailto:CostumeInstitute.Collections@metmuseum.org">CostumeInstitute.Collections@metmuseum.org</a></dd>
+              <dt>Consultas sobre la biblioteca</dt><dd><a href="mailto:CostumeInstitute.Library@metmuseum.org">CostumeInstitute.Library@metmuseum.org</a></dd>
+              <dt>Prensa y comunicaciones</dt><dd><a href="mailto:communications@metmuseum.org">communications@metmuseum.org</a></dd>
+            </dl></div>
+          </details>
+          <details class="about-question">
+            <summary><span class="about-question-number">08</span><h3>¿Dónde puedo comprar productos relacionados con el Met y el Costume Institute?</h3><i class="ri-add-line" aria-hidden="true"></i></summary>
+            <div class="about-answer"><p>En The Met Store, donde se pueden encontrar libros, accesorios, objetos, indumentaria y productos inspirados en las colecciones y exposiciones del museo.</p></div>
+          </details>
+          <details class="about-question">
+            <summary><span class="about-question-number">09</span><h3>¿Dónde puedo encontrar productos específicos del Costume Institute?</h3><i class="ri-add-line" aria-hidden="true"></i></summary>
+            <div class="about-answer"><p>The Met Store cuenta con una sección dedicada al Costume Institute, con productos y colaboraciones vinculadas a distintos diseñadores y marcas.</p></div>
+          </details>
+          <details class="about-question">
+            <summary><span class="about-question-number">10</span><h3>¿Por qué la Met Gala es importante para la moda?</h3><i class="ri-add-line" aria-hidden="true"></i></summary>
+            <div class="about-answer"><p>Porque conecta la moda con el arte, la historia y la cultura, convirtiendo la indumentaria en una forma de expresión y objeto de estudio.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-cta" aria-labelledby="ctaTitle"><div><p class="about-eyebrow">La historia sigue en el archivo</p><h2 id="ctaTitle">Ahora, mirá los looks<br>con <em>otros ojos.</em></h2></div><a href="index.html#looks">Explorar los looks <span><i class="ri-arrow-right-up-line" aria-hidden="true"></i></span></a></section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="wordmark footer-logo" href="index.html#inicio"><span>THE MET</span><span>/ARCHIVES</span></a>
+    <p>Moda. Arte. Historia.</p>
+    <div class="footer-links"><a href="index.html#anios">Archivo</a><a href="index.html#looks">Looks</a><a href="articulos.html">Artículos</a>
+      <a href="#">Ver revista interactiva</a><a href="acerca-de.html" aria-current="page">Acerca de</a><a href="contacto.html">Contacto</a></div>
+    <p class="footer-note"></p>
+  </footer>
+</body>
+</html>

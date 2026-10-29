@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubrí el Metropolitan Museum of Art, sus sedes y las formas de contactar al Costume Institute.">
+  <title>Contacto — The Met Archives</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="contacto.css">
+  <script src="navigation.js" defer></script>
+  <script src="contacto.js" defer></script>
+</head>
+<body class="contact-page">
+  <header class="site-header">
+    <a class="wordmark" href="index.html#inicio" aria-label="The Met Archives, inicio"><span>THE MET</span><span>/ARCHIVES</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+      <a href="index.html#inicio">Inicio</a><a href="index.html#anios">Galas por año</a><a href="index.html#looks">Looks</a><a href="articulos.html">Artículos</a>
+      <a href="#">Ver revista interactiva</a>
+      <details class="nav-dropdown">
+        <summary>Acerca de <i class="ri-arrow-down-s-line" aria-hidden="true"></i></summary>
+        <div class="nav-submenu"><a href="acerca-de.html">Nosotros<span>Preguntas frecuentes</span></a><a href="contacto.html" aria-current="page">Contacto<span>El museo y sus sedes</span></a></div>
+      </details>
+    </nav>
+    <a class="contact-header-link" href="index.html#looks">Explorar archivo <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+    <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><i class="ri-menu-line" aria-hidden="true"></i></button>
+  </header>
+  <main>
+    <section class="contact-intro" aria-labelledby="contactTitle">
+      <div class="contact-heading"><p class="contact-eyebrow">Contacto / El museo</p><h1 id="contactTitle">El arte nos<br><em>conecta.</em></h1></div>
+      <div class="contact-intro-copy"><p>Detrás de una noche de moda, un museo lleno de historias.</p><a href="#contacto">Encontrá tu punto de encuentro <i class="ri-arrow-down-line" aria-hidden="true"></i></a></div>
+    </section>
+    <figure class="contact-main-photo"><img src="images/museo.webp" alt="Fachada del Metropolitan Museum of Art y sus escalinatas en la Quinta Avenida de Nueva York" fetchpriority="high"><figcaption><span>The Metropolitan Museum of Art</span><span>Nueva York</span></figcaption></figure>
+    <section class="contact-museum" aria-labelledby="museumTitle">
+      <div><p class="contact-eyebrow">Mucho más que una alfombra roja</p><h2 id="museumTitle">Un lugar para<br>mirar <em>más allá.</em></h2></div>
+      <div class="contact-museum-copy"><p>El Metropolitan Museum of Art colecciona, estudia, conserva y presenta obras de arte de diversas épocas y culturas, con el fin de conectar a las personas con la creatividad, el conocimiento y las ideas.</p><p>Más de 5.000 años de arte se encuentran en sus colecciones. Desde su fundación en 1870, el museo invita a descubrir conexiones entre épocas y culturas, tanto en sus galerías como a través de internet.</p><a class="contact-text-link" href="https://www.metmuseum.org/" target="_blank" rel="noopener">Explorar el museo <i class="ri-external-link-line" aria-hidden="true"></i><span class="sr-only"> (abre en otra pestaña)</span></a></div>
+      <figure class="contact-gallery-photo"><img src="images/museo2.jpg" alt="Visitantes contemplando una gran pintura en una galería del Metropolitan Museum of Art" loading="lazy"><figcaption>El arte, una experiencia compartida.</figcaption></figure>
+    </section>
+    <section class="contact-section" id="contacto" aria-labelledby="writeTitle">
+      <div class="contact-locations">
+        <p class="contact-eyebrow">Dos sedes, muchas historias</p><h2 id="writeTitle">Sigamos en<br><em>contacto.</em></h2>
+        <article class="contact-location"><span class="contact-location-number">01 / Quinta Avenida</span><h3>The Met Fifth Avenue</h3><p>1000 Fifth Avenue<br>New York, NY 10028</p><a href="tel:+12125357710"><i class="ri-phone-line" aria-hidden="true"></i> +1 212 535 7710</a><a class="contact-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=The+Met+Fifth+Avenue+1000+Fifth+Avenue+New+York" target="_blank" rel="noopener">Ver ubicación <i class="ri-arrow-right-up-line" aria-hidden="true"></i><span class="sr-only"> (abre en otra pestaña)</span></a></article>
+        <article class="contact-location"><span class="contact-location-number">02 / Fort Tryon Park</span><h3>The Met Cloisters</h3><p>99 Margaret Corbin Drive<br>New York, NY 10040</p><a href="tel:+12129233700"><i class="ri-phone-line" aria-hidden="true"></i> +1 212 923 3700</a><a class="contact-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=The+Met+Cloisters+99+Margaret+Corbin+Drive+New+York" target="_blank" rel="noopener">Ver ubicación <i class="ri-arrow-right-up-line" aria-hidden="true"></i><span class="sr-only"> (abre en otra pestaña)</span></a></article>
+      </div>
+      <div class="contact-form-panel">
+        <p class="contact-eyebrow">Tu consulta tiene un lugar</p><h3>¿De qué te gustaría hablar?</h3><p class="contact-form-intro">Elegí el área del Costume Institute y prepará tu mensaje.</p>
+        <form id="contactForm">
+          <div class="contact-form-row"><div class="contact-field"><label for="contactName">Tu nombre <span>(opcional)</span></label><input id="contactName" name="name" autocomplete="name" maxlength="120" placeholder="Cómo te llamás"></div><div class="contact-field"><label for="contactEmail">Correo electrónico <span>(obligatorio)</span></label><input id="contactEmail" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="nombre@correo.com"></div></div>
+          <div class="contact-field"><label for="contactDepartment">Área de consulta</label><select id="contactDepartment" name="department"><option value="collections">Colección e indumentaria</option><option value="library">Biblioteca</option><option value="press">Prensa y comunicaciones</option></select></div>
+          <div class="contact-field"><label for="contactMessage">Tu mensaje <span>(obligatorio)</span></label><textarea id="contactMessage" name="message" required maxlength="4000" rows="6" placeholder="Contanos sobre tu consulta…"></textarea></div>
+          <p class="contact-form-note">Se abrirá tu aplicación de correo para que revises y envíes el mensaje. No se envía desde esta web.</p>
+          <button class="contact-submit" type="submit">Preparar correo <i class="ri-arrow-right-up-line" aria-hidden="true"></i></button>
+          <p class="contact-form-status" id="contactStatus" role="status" hidden></p>
+        </form>
+        <noscript><p>Podés contactar a la colección en <a href="mailto:CostumeInstitute.Collections@metmuseum.org">CostumeInstitute.Collections@metmuseum.org</a>.</p></noscript>
+      </div>
+    </section>
+    <section class="contact-footnote"><p>¿Querés conocer más sobre la gala?</p><a href="acerca-de.html">Consultá las preguntas frecuentes <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a></section>
+  </main>
+  <footer class="site-footer"><a class="wordmark footer-logo" href="index.html#inicio"><span>THE MET</span><span>/ARCHIVES</span></a><p>Moda. Arte. Historia.</p><div class="footer-links"><a href="index.html#anios">Archivo</a><a href="index.html#looks">Looks</a><a href="articulos.html">Artículos</a>
+      <a href="#">Ver revista interactiva</a><a href="acerca-de.html">Nosotros</a><a href="contacto.html" aria-current="page">Contacto</a></div><p class="footer-note"></p></footer>
+</body>
+</html>

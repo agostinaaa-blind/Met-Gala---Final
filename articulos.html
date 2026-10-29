@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Artículos seleccionados sobre la Met Gala: diseño, historia y temáticas, con enlaces a sus notas originales completas.">
+  <title>Artículos — The Met Archives</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="articulos.css">
+  <script src="navigation.js" defer></script>
+  <script src="articles-data.js" defer></script>
+  <script src="articulos.js" defer></script>
+</head>
+
+<body class="journal-page">
+  <header class="site-header">
+    <a class="wordmark" href="index.html#inicio" aria-label="The Met Archives, inicio"><span>THE
+        MET</span><span>/ARCHIVES</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+      <a href="index.html#inicio">Inicio</a><a href="index.html#anios">Galas por año</a><a
+        href="index.html#looks">Looks</a><a href="articulos.html" aria-current="page">Artículos</a>
+      <details class="nav-dropdown">
+        <summary>Acerca de <i class="ri-arrow-down-s-line" aria-hidden="true"></i></summary>
+        <div class="nav-submenu"><a href="acerca-de.html">Nosotros<span>Preguntas frecuentes</span></a><a
+            href="contacto.html">Contacto<span>El museo y sus sedes</span></a></div>
+      </details>
+    </nav>
+    <a class="journal-header-link" href="index.html#looks">Explorar archivo <i class="ri-arrow-right-up-line"
+        aria-hidden="true"></i></a>
+    <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menú" aria-expanded="false"
+      aria-controls="navLinks"><i class="ri-menu-line" aria-hidden="true"></i></button>
+  </header>
+  <main>
+    <section class="journal-heading">
+      <div>
+        <p class="journal-eyebrow">El diario del archivo</p>
+        <h1>Historias que<br><em>se visten.</em></h1>
+      </div>
+      <p>Ideas, referencias y detalles para mirar la Met Gala desde otra perspectiva.</p>
+    </section>
+    <section class="journal-cover" aria-label="Una mirada editorial a la Met Gala">
+      <div class="journal-cover-copy">
+        <p class="journal-eyebrow">Moda / Arte / Cultura</p>
+        <h2>Detrás de un look,<br>siempre hay<br><em>una historia.</em></h2>
+        <p>Del trabajo del atelier a los símbolos de una época. Explorá las piezas, las personas y las ideas que
+          transforman la alfombra roja.</p><a href="#lecturas">Encontrá tu próxima lectura <i class="ri-arrow-down-line"
+            aria-hidden="true"></i></a>
+      </div>
+      <a class="journal-cover-image" href="#lecturas"><img src="images/mas/sabrina1.webp"
+          alt="Invitada con un vestido dorado y una extensa cola en la alfombra roja de la Met Gala"
+          fetchpriority="high">
+        <div><span>Lecturas seleccionadas</span>
+          <p>Diseño, historia y cultura <i class="ri-arrow-right-up-line" aria-hidden="true"></i></p>
+        </div>
+      </a>
+    </section>
+    <section class="journal-library" id="lecturas" aria-labelledby="libraryTitle">
+      <div class="journal-library-heading">
+        <div>
+          <p class="journal-eyebrow">Para leer y descubrir</p>
+          <h2 id="libraryTitle">Todas las historias</h2>
+          <p class="journal-source-note">Una selección de Architectural Digest. Cada artículo abre su nota completa en
+            el sitio original, en una nueva pestaña.</p>
+        </div><label class="journal-search"><span class="sr-only">Buscar artículos por título, autor, tema o
+            año</span><i class="ri-search-line" aria-hidden="true"></i><input id="articleSearch" type="search"
+            placeholder="Buscá una historia" autocomplete="off"></label>
+      </div>
+      <div class="journal-controls">
+        <div class="journal-filters" role="group" aria-label="Filtrar artículos por categoría"><button type="button"
+            data-category="all" aria-pressed="true">Todos</button><button type="button" data-category="diseno"
+            aria-pressed="false">Diseño</button><button type="button" data-category="historia"
+            aria-pressed="false">Historia</button><button type="button" data-category="tematicas"
+            aria-pressed="false">Temáticas</button></div>
+        <p class="journal-count" id="articleCount" role="status" aria-live="polite"></p>
+      </div>
+      <div class="journal-grid" id="journalGrid"></div>
+      <noscript>
+        <p>Activá JavaScript para explorar los artículos seleccionados.</p>
+      </noscript>
+    </section>
+    <section class="journal-end">
+      <p>La moda se mira.<br><em>Las historias se descubren.</em></p><a href="index.html#looks">Recorré el archivo
+        visual <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="wordmark footer-logo" href="index.html#inicio"><span>THE
+        MET</span><span>/ARCHIVES</span></a>
+    <p>Moda. Arte. Historia.</p>
+    <div class="footer-links"><a href="index.html#anios">Archivo</a><a href="index.html#looks">Looks</a><a
+        href="articulos.html">Artículos</a>
+      <a href="#">Ver revista interactiva</a><a href="acerca-de.html">Nosotros</a><a href="contacto.html">Contacto</a>
+    </div>
+    <p class="footer-note"></p>
+  </footer>
+</body>
+
+</html>

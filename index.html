@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Una historia visual de los looks que transformaron la Met Gala.">
+  <title>Gala / Archivo — Íconos de estilo</title>
+
+  <!-- Librería de Iconos de Alta Calidad (Remix Icon CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+  <!-- Hoja de estilos externa -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Lógica y comportamiento interactivo -->
+  <script src="navigation.js" defer></script>
+  <script src="looks-data.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="#inicio" aria-label="Gala Archivo, inicio">
+      <span>THE MET</span>
+      <span>/ARCHIVES</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#anios">Galas por año</a>
+      <a href="#looks">Looks</a>
+      <a href="articulos.html">Artículos</a>
+      <a href="#">Ver revista interactiva</a>
+      <details class="nav-dropdown">
+        <summary>Acerca de <i class="ri-arrow-down-s-line" aria-hidden="true"></i></summary>
+        <div class="nav-submenu">
+          <a href="acerca-de.html">Nosotros<span>Preguntas frecuentes</span></a>
+          <a href="contacto.html">Contacto<span>El museo y sus sedes</span></a>
+        </div>
+      </details>
+    </nav>
+
+    <label class="search-box">
+      <span class="sr-only">Buscar por nombre, año o diseñador</span>
+
+      <input id="searchInput" type="search" placeholder="Buscar en el archivo" autocomplete="off" autocorrect="off"
+        autocapitalize="off" spellcheck="false">
+      <button class="search-clear" id="searchClear" type="button" aria-label="Limpiar búsqueda"><i class="ri-close-line"></i></button>
+    </label>
+    <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menú" aria-expanded="false"><i class="ri-menu-line"></i></button>
+  </header>
+ 
+
+  <main>
+    <section class="hero" id="inicio">
+      <!-- Video de portada en loop continuo optimizado para PC y móviles (incluyendo iOS) -->
+      <video class="hero-video" autoplay loop muted playsinline webkit-playsinline preload="auto"
+        poster="images/portada.webp" aria-hidden="true">
+        <source src="videos/video-portada.mp4" type="video/mp4">
+        Tu navegador no soporta reproducción de video HTML5.
+      </video>
+      <div class="hero-shade"></div>
+
+      <div class="hero-content">
+        <h1>Los looks<br>que<br>hicieron<br>historia</h1>
+        <p class="hero-copy">
+          Glamour, arte y alta costura: una lectura visual de los momentos que transformaron la alfombra del Met.
+        </p>
+      </div>
+
+      <a class="hero-play" href="#galeria"><i class="ri-play-fill"></i> Recorrer archivo visual</a>
+    </section>
+
+    <section class="year-browser section-shell" id="anios">
+      <div class="section-heading">
+        <div>
+
+          <h2>Explorá la Met Gala por año</h2>
+        </div>
+        <p class="section-intro">
+          Un recorrido por los looks que marcaron la historia de la Met Gala.
+        </p>
+      </div>
+
+      <div class="year-controls" id="yearControls" aria-label="Filtrar looks por año">
+        <button class="year-button" data-year="2026">2026</button>
+        <button class="year-button" data-year="2025">2025</button>
+        <button class="year-button" data-year="2024">2024</button>
+        <button class="year-button" data-year="2022">2022</button>
+        <button class="year-button" data-year="2018">2018</button>
+        <button class="year-button" data-year="2015">2015</button>
+        <button class="year-button year-button-all active" data-year="all">Ver todos</button>
+      </div>
+    </section>
+
+    <section class="looks-section section-shell" id="looks">
+      <div class="section-heading">
+        <div>
+
+          <h2>Looks más destacados</h2>
+        </div>
+        <p class="result-count" id="resultCount">9 resultados</p>
+      </div>
+
+      <div class="looks-grid" id="looksGrid"></div>
+    </section>
+
+    <section class="gallery-section" id="galeria">
+      <div class="gallery-media">
+        <a class="gallery-look-link" href="look.html?look=halston-y-bianca-jagger-1977"><img class="gallery-image" id="galleryImage" src="images/anok-yai.webp" alt=""></a>
+        <span class="gallery-year" id="galleryYear">2026</span>
+      </div>
+
+      <div class="gallery-copy">
+        <p class="gallery-kicker">Más ediciones</p>
+        <h2 id="galleryName">Anok Yai</h2>
+        <p class="gallery-theme" id="galleryTheme">Fashion Is Art</p>
+        <p class="gallery-description" id="galleryDescription"></p>
+
+        <div class="gallery-footer">
+          <p class="gallery-counter" id="galleryCounter">01 — 03</p>
+          <div class="gallery-arrows">
+            <button type="button" id="galleryPrevious" aria-label="Imagen anterior"><i class="ri-arrow-left-line"></i></button>
+            <button type="button" id="galleryNext" aria-label="Imagen siguiente"><i class="ri-arrow-right-line"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell" id="articulos">
+      <div class="section-heading">
+        <div>
+          <h2>Artículos y análisis</h2>
+        </div>
+        <p class="section-intro">
+          Tres maneras de interpretar el tiempo, el archivo y la transformación.
+        </p>
+      </div>
+
+      <div class="articles-grid" id="articlesGrid"></div>
+      <div class="more-articles"><div><p>El archivo tiene más para contar.</p><span>Seguí explorando looks, análisis e historias de la Met Gala.</span></div><a href="articulos.html">Ver más artículos <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a></div>
+    </section>
+
+    <section class="newsletter section-shell">
+      <div>
+        <h2>Una historia de moda<br>en tu correo.</h2>
+      </div>
+
+      <div>
+        <form id="newsletterForm">
+          <label for="email">Correo electrónico</label>
+          <div class="newsletter-field">
+            <input id="email" name="email" type="email" placeholder="nombre@correo.com" required>
+            <button type="submit">Suscribirme <i class="ri-arrow-right-line"></i></button>
+          </div>
+          <p class="newsletter-note">Sin ruido: una selección mensual de looks, archivos y diseñadores.</p>
+        </form>
+        <p class="success-message" id="successMessage">Listo. Ya formás parte del archivo.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="wordmark footer-logo" href="#inicio">
+      <span>THE MET</span>
+      <span>/ARCHIVES</span>
+    </a>
+    <p>Moda. Arte. Historia.</p>
+    <div class="footer-links">
+      <a href="#anios">Archivo</a>
+      <a href="#looks">Looks</a>
+      <a href="articulos.html">Artículos</a>
+      <a href="#">Ver revista interactiva</a><a href="acerca-de.html">Acerca de</a>
+    <a href="contacto.html">Contacto</a></div>
+    <p class="footer-note"></p>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL EDITORIAL: HISTORIAS EN PROFUNDIDAD (ALTA COSTURA Y REVISTA DE MODA)
+       ======================================================================== -->
+  <div class="editorial-modal" id="editorialModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Cerrar artículo">
+        <i class="ri-close-line"></i>
+      </button>
+      <div class="modal-editorial-grid" id="modalContent">
+        <!-- Inyectado dinámicamente con la historia editorial completa -->
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
