@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,16 +13,19 @@
   <script src="looks-data.js" defer></script>
   <script src="look-stories.js" defer></script>
   <script src="look.js" defer></script>
+  <script src="cart.js" defer></script>
 </head>
+
 <body class="look-page">
   <header class="site-header">
-    <a class="wordmark" href="index.html#inicio" aria-label="The Met Archives, inicio"><span>THE MET</span><span>/ARCHIVES</span></a>
+    <a class="wordmark" href="index.html#inicio" aria-label="The Met Archives, inicio"><span>THE
+        MET</span><span>/ARCHIVES</span></a>
     <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
       <a href="index.html#inicio">Inicio</a>
       <a href="index.html#anios">Galas por año</a>
       <a href="index.html#looks">Looks</a>
       <a href="articulos.html">Artículos</a>
-      <a href="#">Ver revista interactiva</a>
+      <a href="https://indd.adobe.com/view/baf404d9-47f6-47dd-aeb4-cdea7ccbb586">Ver revista interactiva</a>
       <details class="nav-dropdown">
         <summary>Acerca de <i class="ri-arrow-down-s-line" aria-hidden="true"></i></summary>
         <div class="nav-submenu">
@@ -30,18 +34,154 @@
         </div>
       </details>
     </nav>
-    <a class="look-header-back" href="index.html#looks">Explorar archivo <span aria-hidden="true"><i class="ri-arrow-right-up-line" aria-hidden="true"></i></span></a>
-    <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><i class="ri-menu-line"></i></button>
+    <div class="header-actions">
+      <label class="search-box">
+        <span class="sr-only">Buscar por nombre, año o diseñador</span>
+        <input id="searchInput" type="search" placeholder="Buscar en el archivo" autocomplete="off" autocorrect="off"
+          autocapitalize="off" spellcheck="false">
+        <button class="search-clear" id="searchClear" type="button" aria-label="Limpiar búsqueda"><i
+            class="ri-close-line"></i></button>
+      </label>
+      <button class="cart-header-button" id="cartToggleBtn" type="button" aria-label="Ver carrito de compras"
+        title="Bolsa de compra"><i class="ri-shopping-bag-line"></i><span class="cart-count-badge"
+          id="cartCountBadge">0</span></button>
+      <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menú" aria-expanded="false"
+        aria-controls="navLinks"><i class="ri-menu-line"></i></button>
+    </div>
   </header>
   <main id="lookContent">
-    <noscript><p class="look-empty">Activá JavaScript para leer este look. <a href="index.html#looks">Volver al archivo</a></p></noscript>
+    <noscript>
+      <p class="look-empty">Activá JavaScript para leer este look. <a href="index.html#looks">Volver al archivo</a></p>
+    </noscript>
   </main>
   <footer class="site-footer">
     <a class="wordmark footer-logo" href="index.html#inicio"><span>THE MET</span><span>/ARCHIVES</span></a>
     <p>Moda. Arte. Historia.</p>
-    <div class="footer-links"><a href="index.html#anios">Archivo</a><a href="index.html#looks">Looks</a><a href="articulos.html">Artículos</a>
-      <a href="#">Ver revista interactiva</a><a href="acerca-de.html">Acerca de</a><a href="contacto.html">Contacto</a></div>
+    <div class="footer-links"><a href="index.html#anios">Archivo</a><a href="index.html#revista-impresa">Revista
+        Impresa</a><a href="index.html#looks">Looks</a><a href="articulos.html">Artículos</a>
+      <a href="#">Ver revista interactiva</a><a href="acerca-de.html">Acerca de</a><a href="contacto.html">Contacto</a>
+    </div>
     <p class="footer-note"></p>
   </footer>
+
+  <!-- ========================================================================
+       MODAL / DRAWER LATERAL: CARRITO DE COMPRAS & CHECKOUT DIRECTO
+       ======================================================================== -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartDrawerTitle">
+    <!-- Pantalla Normal: Lista de Productos y Formulario de Compra -->
+    <div id="cartDrawerContent" style="display:flex; flex-direction:column; height:100%;">
+      <div class="cart-drawer-header">
+        <h3 id="cartDrawerTitle">Bolsa de compra <span>The Met Archives</span></h3>
+        <button type="button" class="cart-close-btn" id="cartCloseBtn" aria-label="Cerrar carrito">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+
+      <div class="cart-drawer-body">
+        <!-- Estado Vacío -->
+        <div class="cart-empty-state" id="cartEmptyState">
+          <i class="ri-shopping-bag-line"></i>
+          <p>Tu bolsa de compra está vacía.</p>
+          <a class="btn-add-cart" href="#revista-impresa"
+            onclick="document.getElementById('cartDrawerOverlay').click();"
+            style="display:inline-flex; font-size:0.75rem; padding:0.8rem 1.6rem;">
+            Ver edición impresa
+          </a>
+        </div>
+
+        <!-- Lista de Productos en el Carrito -->
+        <div id="cartDrawerItems"></div>
+
+        <!-- Formulario de Envío y Pago Rápido -->
+        <div class="cart-checkout-section" id="cartCheckoutSection" style="display:none;">
+          <h4><i class="ri-map-pin-user-line"></i> Datos de entrega y compra</h4>
+          <form id="cartCheckoutForm">
+            <div class="checkout-form-grid">
+              <div class="checkout-input-group full-span">
+                <label for="checkoutName">Nombre completo *</label>
+                <input id="checkoutName" type="text" placeholder="Ej: Agustina Gómez" required>
+              </div>
+
+              <div class="checkout-input-group">
+                <label for="checkoutEmail">Correo electrónico *</label>
+                <input id="checkoutEmail" type="email" placeholder="nombre@correo.com" required>
+              </div>
+
+              <div class="checkout-input-group">
+                <label for="checkoutPhone">Teléfono / WhatsApp *</label>
+                <input id="checkoutPhone" type="tel" placeholder="+54 9 11 ..." required>
+              </div>
+
+              <div class="checkout-input-group full-span">
+                <label for="checkoutAddress">Dirección de entrega (Calle y Nro) *</label>
+                <input id="checkoutAddress" type="text" placeholder="Av. Corrientes 1234, Piso 4" required>
+              </div>
+
+              <div class="checkout-input-group">
+                <label for="checkoutCity">Ciudad / Localidad *</label>
+                <input id="checkoutCity" type="text" placeholder="Buenos Aires" required>
+              </div>
+
+              <div class="checkout-input-group">
+                <label for="checkoutZip">Código Postal *</label>
+                <input id="checkoutZip" type="text" placeholder="C1043" required>
+              </div>
+
+              <div class="checkout-input-group full-span">
+                <label for="checkoutPayment">Método de pago preferido *</label>
+                <select id="checkoutPayment" required>
+                  <option value="mercadopago">Mercado Pago / Tarjeta de Crédito y Débito</option>
+                  <option value="transferencia">Transferencia Bancaria Directa (-10% off)</option>
+                  <option value="efectivo">Efectivo contra entrega (CABA)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="cart-drawer-footer" id="cartDrawerFooter">
+              <div class="cart-summary-line">
+                <span>Subtotal productos:</span>
+                <span id="cartSubtotalDisplay">$0</span>
+              </div>
+              <div class="cart-summary-line">
+                <span>Costo de envío asegurado:</span>
+                <span style="color:var(--signal); font-weight:700;">GRATIS</span>
+              </div>
+              <div class="cart-summary-total">
+                <span>Total a pagar:</span>
+                <span class="total-amount" id="cartTotalDisplay">$0</span>
+              </div>
+
+              <button type="submit" class="btn-checkout-submit" id="btnCheckoutSubmit">
+                <i class="ri-secure-payment-line"></i> Confirmar y Realizar Pedido
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pantalla de Éxito tras la compra -->
+    <div class="cart-order-success" id="cartOrderSuccess">
+      <div class="cart-success-icon">
+        <i class="ri-check-line"></i>
+      </div>
+      <h3>¡Pedido confirmado!</h3>
+      <p>
+        Muchas gracias, <strong id="orderCustomerName" style="color:var(--signal);">Coleccionista</strong>. Hemos
+        registrado tu solicitud para el tomo físico de <em>The Met / Archives</em>.
+      </p>
+      <div class="order-code-badge">
+        CÓDIGO DE ORDEN: <span id="orderCodeDisplay">MET-000000</span>
+      </div>
+      <p style="font-size:0.8rem; color:rgba(244,240,232,0.6); max-width:340px; margin-bottom:2rem;">
+        Te enviamos los detalles de facturación y seguimiento de despacho postal al correo ingresado.
+      </p>
+      <button type="button" class="btn-add-cart" id="btnContinueShopping" style="width:100%; justify-content:center;">
+        Continuar explorando el archivo
+      </button>
+    </div>
+  </aside>
 </body>
+
 </html>

@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    GALA / ARCHIVO — SCRIPT PRINCIPAL
    Archivo: main.js
    Descripción: Configuración centralizada de datos (JSON) para fácil edición
@@ -27,6 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
      ========================================================================== */
   let activeYear = "all";
   let currentSearch = "";
+  // Si viene con un parámetro de búsqueda desde otra página (?search=...)
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialSearch = urlParams.get("search");
+  if (initialSearch && searchInput) {
+    searchInput.value = initialSearch;
+    currentSearch = initialSearch.toLowerCase();
+    searchClear.classList.add("visible");
+  }
   let galleryIndex = 0;
 
   /* ==========================================================================
